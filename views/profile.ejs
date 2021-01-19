@@ -1,0 +1,50 @@
+<%- include('partials/header'); -%>
+<h1 class="profile_success"> Registration Successfull</h1>
+
+<div class = "profile">
+<p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display:none"></p>
+<p><label for="file" style="cursor: pointer;">Upload Image</label></p>
+<p><img id="output" width="200" /></p>
+<h2 class= "name"><%= employe.full_name %></h2>
+    <div class = "wrapper">
+    <p class=" organisation"><span>Organisation:</span> <%= employe.organisation_name %></p>
+    <p class=" Email"><span>Email:</span> <%= employe.email %></p>
+    <p class= "Employe_id"><span>Employe ID:</span> <%= employe.employe_id %> </p>
+    <p class = "Registration_id"><span>Registration ID:</span> 
+        <% var str = String(employe._id); %>
+        <% var matches = str.match(/\d+/g); %>
+        <%  matches =  matches.join(""); %>
+        <% if(matches) { %>
+          <%= matches %>
+       <% } %>
+    </p>
+    <p class = "Mobile_no"><span>Mobile Number:</span> <%= employe.mobile_no %></p>
+
+</div>
+<script>
+var loadFile = function(event) {
+	var image = document.getElementById('output');
+	image.src = URL.createObjectURL(event.target.files[0]);
+};
+</script>
+    <!--<h2 class= "name"><%= employe.full_name %></h2>
+    <div class = "wrapper">
+    <p class=" organisation"><span>Organisation:</span> <%= employe.organisation_name %></p>
+    <p class=" Email"><span>Email:</span> <%= employe.email %></p>
+    <p class= "Employe_id"><span>Employe ID:</span> <%= employe.employe_id %> </p>
+    <p class = "Registration_id"><span>Registration ID:</span> 
+        <% var str = String(employe._id); %>
+        <% var matches = str.match(/\d+/g); %>
+        <%  matches =  matches.join(""); %>
+        <% if(matches) { %>
+          <%= matches %>
+       <% } %>
+    </p>
+    <p class = "Mobile_no"><span>Mobile Number:</span> <%= employe.mobile_no %></p>-->
+
+
+
+
+
+
+<p class = "Menu_btn"><a href="/">Back to homepage</a></p>
